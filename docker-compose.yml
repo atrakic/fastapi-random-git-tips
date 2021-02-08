@@ -1,0 +1,14 @@
+---
+version: '3.7'
+
+services:
+
+  random_git_tips:
+    build:
+      context: .
+    container_name: random_git_tips
+    command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - JSON_FILE=git-tips.json
